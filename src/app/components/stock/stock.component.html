@@ -1,0 +1,45 @@
+<div *ngFor="let stock of (stocks| keyvalue);index as i">
+{{print(stock.value)}}
+<table>
+  <tr>
+      <th >
+          Stock Name
+      </th>
+      <th>
+          Stock Market Price
+      </th>
+      <th>
+        Stock Current Price
+    </th>
+    <th>
+      Quantity
+  </th>
+      <th>
+          Profit
+      </th>
+      <th>
+          Profit %
+      </th>
+  </tr>
+  <tr>
+          <td>
+              {{stock.value['result'][0].longName}}
+          </td>
+          <td>
+              {{stock.value['result'][0].regularMarketPrice}}
+          </td>
+          <td>
+            {{stockObj.boughtPrice}}
+        </td>
+        <td>
+          {{stockObj.quantity}}
+      </td>
+          <td>
+              {{stockService.calculateProfit(stockObj,stock.value['result'][0].regularMarketPrice)}}
+          </td>
+          <td>
+              {{stockService.calculateProfitPercent(stockObj,stock.value['result'][0].regularMarketPrice)}}
+          </td>
+  </tr>
+</table>
+</div>
